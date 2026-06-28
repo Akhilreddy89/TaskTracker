@@ -1,0 +1,235 @@
+/* ─── Task Tracker — global styles ──────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* surfaces */
+  --bg:            #f4f4f0;
+  --surface:       #ffffff;
+
+  /* borders */
+  --border:        rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.18);
+
+  /* text */
+  --text-primary:   #1a1a18;
+  --text-secondary: #5f5e5a;
+  --text-muted:     #8a8880;
+
+  /* accent (edit button / submit) */
+  --accent:    #3b6fd4;
+  --accent-bg: #e8effc;
+
+  /* danger (delete button) */
+  --danger:    #c0392b;
+  --danger-bg: #fcecea;
+
+  /* shared */
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #1a1a18;
+    --surface:       #252522;
+
+    --border:        rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+
+    --text-primary:   #f0ede8;
+    --text-secondary: #a09e99;
+    --text-muted:     #6b6966;
+
+    --accent:    #6e9ef5;
+    --accent-bg: #1a2640;
+
+    --danger:    #e57373;
+    --danger-bg: #2e1515;
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────── */
+body {
+  background:  var(--bg);
+  color:       var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size:   15px;
+  line-height: 1.6;
+  padding:     2rem 1rem;
+}
+
+/* ─── Home ───────────────────────────────────────────────────────────── */
+.home-container {
+  max-width: 720px;
+  margin:    0 auto;
+}
+
+.home-container > h1 {
+  font-size:     22px;
+  font-weight:   500;
+  margin-bottom: 1.5rem;
+  color:         var(--text-primary);
+}
+
+/* ─── Task form ──────────────────────────────────────────────────────── */
+.task-form {
+  background:    var(--surface);
+  border:        0.5px solid var(--border);
+  border-radius: 12px;
+  padding:       1.25rem;
+  margin-bottom: 1.75rem;
+  box-shadow:    var(--shadow);
+
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form textarea,
+.task-form select {
+  width:       100%;
+  padding:     8px 12px;
+  background:  var(--bg);
+  border:      0.5px solid var(--border-strong);
+  border-radius: var(--radius);
+  color:       var(--text-primary);
+  font-family: inherit;
+  font-size:   14px;
+  outline:     none;
+  transition:  border-color 0.15s, box-shadow 0.15s;
+}
+
+.task-form input[type="text"]:focus,
+.task-form input[type="date"]:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: var(--accent);
+  box-shadow:   0 0 0 3px rgba(59, 111, 212, 0.12);
+}
+
+.task-form textarea {
+  resize:     vertical;
+  min-height: 84px;
+  line-height: 1.5;
+}
+
+.task-form select {
+  cursor: pointer;
+}
+
+.task-form button[type="submit"] {
+  align-self:    flex-start;
+  padding:       9px 20px;
+  background:    var(--accent);
+  color:         #ffffff;
+  border:        none;
+  border-radius: var(--radius);
+  font-family:   inherit;
+  font-size:     14px;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    background 0.15s, transform 0.1s;
+}
+
+.task-form button[type="submit"]:hover {
+  background: #2d5cbf;
+}
+
+.task-form button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* ─── Task grid ──────────────────────────────────────────────────────── */
+.task-container {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:                   12px;
+}
+
+.task-container > p {
+  grid-column: 1 / -1;
+  text-align:  center;
+  padding:     2.5rem 0;
+  color:       var(--text-muted);
+  font-size:   14px;
+}
+
+/* ─── Task card ──────────────────────────────────────────────────────── */
+.task-card {
+  background:    var(--surface);
+  border:        0.5px solid var(--border);
+  border-radius: 12px;
+  padding:       1rem 1.25rem;
+  box-shadow:    var(--shadow);
+
+  display:        flex;
+  flex-direction: column;
+  gap:            6px;
+}
+
+.task-card h3 {
+  font-size:   15px;
+  font-weight: 500;
+  color:       var(--text-primary);
+}
+
+.task-card > p {
+  font-size:   13px;
+  color:       var(--text-secondary);
+  line-height: 1.5;
+}
+
+.task-card > p strong {
+  color:       var(--text-primary);
+  font-weight: 500;
+}
+
+.btn-group {
+  display:    flex;
+  gap:        8px;
+  margin-top: 10px;
+}
+
+.btn-group button {
+  flex:          1;
+  padding:       7px 12px;
+  border-radius: var(--radius);
+  font-family:   inherit;
+  font-size:     13px;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    background 0.15s, transform 0.1s;
+}
+.btn-group button:first-child {
+  background:   var(--accent-bg);
+  color:        var(--accent);
+  border:       0.5px solid rgba(59, 111, 212, 0.25);
+}
+
+.btn-group button:first-child:hover {
+  background: #d0e0f8;
+}
+
+.btn-group button:last-child {
+  background:   var(--danger-bg);
+  color:        var(--danger);
+  border:       0.5px solid rgba(192, 57, 43, 0.20);
+}
+
+.btn-group button:last-child:hover {
+  background: #f8dbd8;
+}
+
+.btn-group button:active {
+  transform: scale(0.97);
+}
