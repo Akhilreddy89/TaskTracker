@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
 import { getTasks } from "../services/taskServices";
+import "../style/Home.css";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);

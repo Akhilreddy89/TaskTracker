@@ -9,12 +9,12 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const taskRouter = Router();
 
-taskRouter.route("/",authMiddleware)
-  .get(getTasks)
-  .post(createTask);
+taskRouter.route("/")
+  .get(authMiddleware, getTasks)
+  .post(authMiddleware, createTask);
 
-taskRouter.route("/:id",authMiddleware)
-  .put(updateTask)
-  .delete(deleteTask);
+taskRouter.route("/:id")
+  .put(authMiddleware, updateTask)
+  .delete(authMiddleware, deleteTask);
 
 export default taskRouter;

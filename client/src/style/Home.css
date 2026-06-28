@@ -1,0 +1,198 @@
+/* ---------- Global ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #eef7ff;
+  color: #1f2937;
+}
+
+/* ---------- Home ---------- */
+
+.home-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.home-container h1 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+/* ---------- Form ---------- */
+
+.task-form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  margin-bottom: 35px;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+  padding: 12px 15px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #3b82f6;
+}
+
+.task-form textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.task-form button {
+  background: #2563eb;
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.task-form button:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- Task List ---------- */
+
+.task-container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 20px;
+}
+
+/* ---------- Task Card ---------- */
+
+.task-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+}
+
+.task-card h3 {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.task-card p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-group {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 15px;
+}
+
+.btn-group button {
+  flex: 1;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.btn-group button:first-child {
+  background: #0ea5e9;
+  margin-right: 10px;
+}
+
+.btn-group button:first-child:hover {
+  background: #0284c7;
+}
+
+.btn-group button:last-child {
+  background: #ef4444;
+}
+
+.btn-group button:last-child:hover {
+  background: #dc2626;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+  .home-container{
+    width:95%;
+  }
+
+  .home-container h1{
+    font-size:2rem;
+  }
+
+  .btn-group{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .btn-group button:first-child{
+    margin-right:0;
+  }
+
+}

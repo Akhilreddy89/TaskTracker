@@ -8,6 +8,7 @@ const createTask = async (req, res) => {
             description,
             dueDate,
             status,
+            user: req.user 
         });
 
         res.status(201).json({
@@ -80,8 +81,9 @@ const deleteTask = async (req, res) => {
 
 const getTasks = async (req, res) => {
     try {
-        const tasks = await Task.find();
-
+        console.log(req.user);
+        const tasks = await Task.find({ user: req.user });
+        console.log(tasks);
         res.status(200).json({
             success: true,
             message: "Tasks fetched successfully",
