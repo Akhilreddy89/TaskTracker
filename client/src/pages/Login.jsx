@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getLogin } from "../services/authServices.js";
 import { useAuth } from "../context/AuthContext.jsx";
 import "../style/Auth.css";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/NavBar.jsx";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
