@@ -5,7 +5,6 @@ const createTask = async (req, res) => {
         const { title, description, dueDate, status } = req.body;
         console.log(req);
         const task = await Task.create({
-            user: req.user.id,
             title,
             description,
             dueDate,
