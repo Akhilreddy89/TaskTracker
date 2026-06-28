@@ -3,7 +3,6 @@ import Task from "../models/Task.js";
 const createTask = async (req, res) => {
     try {
         const { title, description, dueDate, status } = req.body;
-        console.log(req);
         const task = await Task.create({
             title,
             description,
@@ -17,7 +16,6 @@ const createTask = async (req, res) => {
             task,
         });
     } catch (error) {
-        console.error(error);
         res.status(500).json({
             success: false,
             message: error.message,
@@ -79,19 +77,18 @@ const deleteTask = async (req, res) => {
 
 
 }
+
 const getTasks = async (req, res) => {
     try {
-        const tasks = await Task.find({
-            user: req.user.id
-        });
+        const tasks = await Task.find();
+
         res.status(200).json({
             success: true,
             message: "Tasks fetched successfully",
             tasks,
         });
 
-    }
-    catch (error) {
+    } catch (error) {
         res.status(500).json({
             success: false,
             message: error.message,

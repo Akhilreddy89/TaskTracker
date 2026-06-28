@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
 import { getTasks } from "../services/taskServices";
-import '../index.css';
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -11,7 +10,7 @@ const Home = () => {
   const fetchTasks = async () => {
     try {
       const res = await getTasks();
-      setTasks(res.data.tasks);
+      setTasks(res.tasks);
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
