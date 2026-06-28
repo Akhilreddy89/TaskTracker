@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { createTask,updateTask } from "../services/taskServices";
 import '../index.css';
 
 const TaskForm = ({ fetchTasks, editingTask, setEditingTask }) => {
@@ -33,16 +33,13 @@ const TaskForm = ({ fetchTasks, editingTask, setEditingTask }) => {
 
         try {
             if (editingTask) {
-                await axios.put(
-                    `http://localhost:5000/api/tasks/${editingTask._id}`,
+                await updateTask(
+                    editingTask._id,
                     formData
                 );
                 setEditingTask(null);
             } else {
-                await axios.post(
-                    "http://localhost:5000/api/tasks",
-                    formData
-                );
+                await createTask(formData);
             }
 
             setFormData({

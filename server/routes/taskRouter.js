@@ -5,14 +5,15 @@ import {
   deleteTask,
   updateTask,
 } from "../controllers/taskController.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const taskRouter = Router();
 
-taskRouter.route("/")
+taskRouter.route("/",authMiddleware)
   .get(getTasks)
   .post(createTask);
 
-taskRouter.route("/:id")
+taskRouter.route("/:id",authMiddleware)
   .put(updateTask)
   .delete(deleteTask);
 

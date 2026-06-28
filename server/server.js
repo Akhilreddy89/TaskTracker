@@ -4,7 +4,8 @@ import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 
 
-import taskRouter from './routes/taskRoutes.js';
+import taskRouter from './routes/taskRouter.js';
+import authRouter from './routes/authRouter.js';
 
 const app=express();
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(cors({
 }));
 
 app.use("/api/tasks", taskRouter);
+app.use("/api",authRouter);
 
 app.get("/", (req, res) => {
     res.send("Server is working");

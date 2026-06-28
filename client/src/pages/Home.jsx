@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
+import { getTasks } from "../services/taskServices";
 import '../index.css';
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tasks");
+      const res = await getTasks();
       setTasks(res.data.tasks);
     } catch (error) {
       console.error("Error fetching tasks:", error);

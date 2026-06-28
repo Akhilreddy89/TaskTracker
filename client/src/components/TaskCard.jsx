@@ -1,13 +1,10 @@
-import axios from "axios";
+import { deleteTask } from '../services/taskServices';
 import '../index.css';
 
 const TaskCard = ({ task, fetchTasks, setEditingTask }) => {
     const handleDelete = async () => {
         try {
-            await axios.delete(
-                `http://localhost:5000/api/tasks/${task._id}`
-            );
-
+            await deleteTask(task._id);
             fetchTasks();
         } catch (error) {
             console.log(error);
