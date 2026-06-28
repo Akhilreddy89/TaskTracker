@@ -35,18 +35,6 @@ export const AuthProvider = ({
       try {
 
         const res = await getCurrentUser();
-        if (res.status==500) {
-
-          localStorage.removeItem(
-            "token"
-          );
-
-          setToken(null);
-          setUser(null);
-
-          return;
-        }
-
         setUser(res.data.user);
 
       } catch (err) {

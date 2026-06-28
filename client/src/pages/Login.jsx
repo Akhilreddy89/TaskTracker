@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLogin } from "../services/authServices.js";
 import { useAuth } from "../context/AuthContext.jsx";
-// import "../style/Auth.css";
-// import Navbar from "../components/Navbar.jsx";
+import "../style/Auth.css";
+import Navbar from "../components/Navbar.jsx";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -61,6 +61,7 @@ function Login() {
 
 return (
   <>
+  <Navbar/>
   <div className="auth-page">
     <form className="auth-card" onSubmit={handleSubmit} noValidate>
       <div>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRegister } from "../services/authServices.js";
-// import "../style/Auth.css";
+import "../style/Auth.css";
 
-// import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/Navbar.jsx";
+
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [errors, setErrors] = useState({ name: "", email: "", password: "" });
@@ -33,7 +34,7 @@ function Register() {
     }
 
     setErrors(nextErrors);
-    return !nextErrors.fullname && !nextErrors.email && !nextErrors.password;
+    return !nextErrors.name && !nextErrors.email && !nextErrors.password;
   };
 
   const handleChange = (e) => {
@@ -64,6 +65,7 @@ function Register() {
 
   return (
     <>
+    <Navbar/>
     <div className="auth-page">
       <form className="auth-card" onSubmit={handleSubmit} noValidate>
         <div>

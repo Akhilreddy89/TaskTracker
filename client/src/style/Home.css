@@ -1,4 +1,3 @@
-/* ---------- Global ---------- */
 
 * {
   margin: 0;
@@ -11,8 +10,6 @@ body {
   background: #eef7ff;
   color: #1f2937;
 }
-
-/* ---------- Home ---------- */
 
 .home-container {
   width: 90%;

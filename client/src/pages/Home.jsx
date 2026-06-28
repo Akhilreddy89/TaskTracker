@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
 import { getTasks } from "../services/taskServices";
+import Navbar from "../components/NavBar";
 import "../style/Home.css";
 
 const Home = () => {
@@ -22,6 +23,8 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className="home-container">
       <h1>Task Tracker</h1>
 
@@ -46,6 +49,7 @@ const Home = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

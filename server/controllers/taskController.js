@@ -28,11 +28,11 @@ const updateTask = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, description, status, dueDate } = req.body;
-        const updatedTask = await Task.findByIdAndUpdate(
-            id,
-            { title, description, status, dueDate },
-            { new: true, runValidators: true }
-        );
+        const updatedTask = await Task.findOneAndUpdate(
+                { _id: id, user: req.user },  
+                { title, description, status, dueDate },
+                { new: true, runValidators: true }
+                );
         if (!updatedTask) {
             return res.status(404).json({
                 success: false,
@@ -57,7 +57,7 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedTask = await Task.findByIdAndDelete(id);
+        const deletedTask = await Task.findOneAndDelete({ _id: id, user: req.user });
         if (!deletedTask) {
             return res.status(404).json({
                 success: false,

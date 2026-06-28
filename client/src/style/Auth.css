@@ -59,7 +59,7 @@
   padding: 14px 18px;
   font-size: 15px;
   font-weight: 700;
-  color: #fff;
+  color: #4b78e9;
   background: var(--p);
   transition: background var(--transition), transform var(--transition);
 }

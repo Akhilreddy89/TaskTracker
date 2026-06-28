@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createTask,updateTask } from "../services/taskServices";
-import '../index.css';
+import '../style/TaskForm.css';
 
 const TaskForm = ({ fetchTasks, editingTask, setEditingTask }) => {
     const [formData, setFormData] = useState({
