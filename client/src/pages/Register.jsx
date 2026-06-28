@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getRegister } from "../services/authServices.js";
 import "../style/Auth.css";
 
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/NavBar.jsx";
 
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
