@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
-import ProtectedRoute from "./pages/ProtectedRoute";
+import ProtectedRoute from "./pages/protectedRoute";
 import { useLocation } from "react-router-dom";
 
 function App() {
